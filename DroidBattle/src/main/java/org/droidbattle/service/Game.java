@@ -29,7 +29,6 @@ public class Game {
                     "\nОберіть: ");
 
             String mvar = scanner.nextLine().trim();
-            System.out.println("--------------------");
 
             switch (mvar) {
                 case "1":
@@ -61,6 +60,7 @@ public class Game {
     }
 
     private void createDroid() {
+        System.out.println("\n--------------------");
         System.out.print("Введіть ім'я: ");
         String name = scanner.nextLine().trim();
 
@@ -115,11 +115,12 @@ public class Game {
 
     private void listDroids() {
         if (droids.isEmpty()) {
-            System.out.println("Ні одного дроїду ще не було створено!");
+            System.out.println("\n--------------------" +
+                    "\nНі одного дроїду ще не було створено!");
             return;
         }
 
-        System.out.println("------ Дроїди ------");
+        System.out.println("\n------ Дроїди ------");
         for (int i = 0; i < droids.size(); i++) {
             System.out.println("(" + i + ") " + droids.get(i).detailed());
         }
@@ -145,7 +146,8 @@ public class Game {
 
     private void battleOneOnOne() {
         if (droids.size() < MINIMUM_FOR_ONE_ON_ONE) {
-            System.out.println("Для початку бою потрібно мати якнайменше 2 дроїда!");
+            System.out.println("\n--------------------" +
+                    "\nДля початку бою потрібно мати якнайменше 2 дроїда!");
             return;
         }
 
@@ -174,7 +176,8 @@ public class Game {
 
     private void battleTeamOnTeam() {
         if (droids.size() < MINIMUM_FOR_TEAM_ON_TEAM) {
-            System.out.println("Для початку бою потрібно мати щонайменше 6 дроїдів!");
+            System.out.println("\n--------------------" +
+                    "\nДля початку бою потрібно мати щонайменше 6 дроїдів!");
             return;
         }
 
@@ -241,6 +244,7 @@ public class Game {
     }
 
     private void replayLastBattle() {
+        System.out.println("\n--------------------");
         if (!Files.exists(lastBattle)) {
             System.out.println("Немає запису попереднього бою!");
             return;
